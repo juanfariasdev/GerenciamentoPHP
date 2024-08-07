@@ -22,7 +22,8 @@ require_once('header.php');
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">GERENCIADOR DE ORDEM DE SERVIÇO</h1>
                                     </div>
-                                   <?php
+                                    
+                                    <?php
                                     if (isset($_SESSION['texto_erro_login'])):
                                     ?>
                                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -31,10 +32,24 @@ require_once('header.php');
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                   <?php
+                                    <?php
                                     unset($_SESSION['texto_erro_login']);
                                     endif;
-                                   ?>
+                                    ?>
+
+                                    <?php
+                                    if (isset($_SESSION['mensagem_sucesso'])):
+                                    ?>
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong><i class="fas fa-check"></i>&nbsp;&nbsp;<?= $_SESSION['mensagem_sucesso'] ?></strong> 
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    <?php
+                                    unset($_SESSION['mensagem_sucesso']);
+                                    endif;
+                                    ?>
                                    
                                     <form class="user" action="valida_login.php" method="post">
                                         <div class="form-group">
@@ -63,6 +78,11 @@ require_once('header.php');
                                     </form>
                                     
                                     <!-- Redireciona para o formulário de troca de senha -->
+                                    <form class="user mt-2" action="registrar.php" method="get">
+                                        <button type="submit" class="btn btn-secondary btn-user btn-block">
+                                            Cadastrar como cliente
+                                        </button>
+                                    </form>
                                     <form class="user mt-2" action="troca_senha_form.php" method="get">
                                         <button type="submit" class="btn btn-secondary btn-user btn-block">
                                             Esqueci minha senha
@@ -83,7 +103,8 @@ require_once('header.php');
         </div>
 
     </div>
-<!-- Bootstrap core JavaScript-->
+
+    <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

@@ -18,7 +18,7 @@ require_once('header.php');
                             <div class="col-lg-6">
                                 <div class="p-4">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Adicionar Cliente</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Registrar</h1>
                                     </div>
                                     
                                     <?php if (isset($_SESSION['texto_erro'])): ?>
@@ -92,7 +92,7 @@ require_once('header.php');
                                                 <option value="2">Inativo</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">Adicionar</button> 
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Registrar</button> 
                                         <hr>
                                         <div class="text-center">
                                             <a class="small" href="cliente.php">Voltar</a>

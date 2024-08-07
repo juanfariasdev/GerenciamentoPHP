@@ -21,7 +21,7 @@ if (!$email || strlen($nova_senha) < 6) {
     redirecionarComMensagem('mensagem_erro', 'Email inválido ou senha muito curta!', 'troca_senha_form.php');
 }
 
-$nova_senha_hash = md5($nova_senha);
+$nova_senha_hash = $nova_senha;
 
 // Função genérica para alterar senha
 function alterarSenha($usuario, $tipo) {
@@ -38,17 +38,17 @@ function alterarSenha($usuario, $tipo) {
 
 // Verifica se o email existe nas tabelas de usuários, clientes ou terceirizados
 $usuario = buscaUsuario($email);
-if ($usuario) {
+if (mysqli_num_rows($usuario) > 0) {
     alterarSenha($usuario, 'usuario');
 }
 
 $cliente = buscaCliente($email);
-if ($cliente) {
+if (mysqli_num_rows($cliente) > 0) {
     alterarSenha($cliente, 'cliente');
 }
 
 $terceirizado = buscaTerceirizado($email);
-if ($terceirizado) {
+if (mysqli_num_rows($terceirizado) > 0) {
     alterarSenha($terceirizado, 'terceirizado');
 }
 
